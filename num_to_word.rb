@@ -63,10 +63,8 @@ class NumToWord
         less_than_one_hundred(n) 
       elsif n < 1000
         less_than_one_thousand(n)
-      elsif n < 100000
-        less_than_hundred_thousand(n)  
       else
-        less_than_million(n)
+        greater_than_one_thousand(n)  
       end
     end
 
@@ -87,11 +85,7 @@ class NumToWord
       translate_num(n/100) + " hundred " + translate_num(n % 100)
     end 
 
-    def less_than_hundred_thousand(n)
-      translate_num(n/1000) + " thousand " + translate_num(n%1000)
-    end
-
-    def less_than_million(n)
+    def greater_than_one_thousand(n)
       translate_num(n/1000) + " thousand " + translate_num(n%1000)
     end
 end
