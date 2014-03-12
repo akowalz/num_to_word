@@ -52,7 +52,7 @@ class NumToWord
       5 => "fifty",
       6 => "sixy",
       7 => "seventy",
-      8 => "eigty",
+      8 => "eighty",
       9 => "ninety"
     }
 
