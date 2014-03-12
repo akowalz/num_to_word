@@ -4,20 +4,25 @@ class NumToWord
     @n = n
   end
 
+  # The API
   def translate
+    # zero is a special case we don't want zero to come out of recursion
+    # 100 being translated as "one hundred zero" is bad!
     if @n == 0
         "zero"
     else
         # get rid of extra whitespace with strip and squeeze
-        # kind of inelegant but works very well
         translate_num(@n).strip.squeeze(" ")
     end
   end
 
-  # constants
+  # dictionaries to hold words
 
   ONE_THRU_NINETEEN =
     {
+      # we don't want nil if we lookup zero
+      # but we also don't want "zero", so just put empty string
+      # remove excess whitespace later
       0 => "",
       1 => "one",
       2 => "two", 
@@ -66,6 +71,7 @@ class NumToWord
     end
 
     def less_than_twenty(n)
+      # just a lookup, these are all special cases
       ONE_THRU_NINETEEN[n]
     end
 
@@ -73,7 +79,7 @@ class NumToWord
       if n >= 20
         TENS_PREFIXES[n/10] + "-" + translate_num(n%10)
       else
-        less_than_twenty n
+        less_than_twenty(n)
       end
     end
 
@@ -89,8 +95,3 @@ class NumToWord
       translate_num(n/1000) + " thousand " + translate_num(n%1000)
     end
 end
-
-
-
-
-
