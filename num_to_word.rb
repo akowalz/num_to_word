@@ -9,10 +9,10 @@ class NumToWord
     # zero is a special case we don't want zero to come out of recursion
     # 100 being translated as "one hundred zero" is bad!
     if @n == 0
-        "zero"
+      "zero"
     else
-        # get rid of extra whitespace with strip and squeeze
-        translate_num(@n).strip.squeeze(" ")
+      # get rid of extra whitespace with strip and squeeze
+      translate_num(@n).strip.squeeze(" ")
     end
   end
 
@@ -60,31 +60,16 @@ class NumToWord
 
     def translate_num(n)
       if n < 20
-        # all special cases, just a lookup
         ONE_THRU_NINETEEN[n]
       elsif n < 100
-        less_than_one_hundred(n) 
+        prefix = TENS_PREFIXES[n/10]
+        # only add hyphen when there is a ones digit
+        n % 10 == 0 ? prefix : prefix + "-" + translate_num(n % 10)
       elsif n < 1000
-        less_than_one_thousand(n)
+        translate_num(n/100) + " hundred " + translate_num(n % 100)
       else
-        greater_than_one_thousand(n)  
+        translate_num(n/1000) + " thousand " + translate_num(n % 1000)
       end
     end
 
-    def less_than_one_hundred(n)
-      prefix = TENS_PREFIXES[n/10]
-      if n%10 == 0
-        prefix 
-      # to catch the "twenty-" error
-      else prefix + "-" + translate_num(n%10)
-      end
-    end
-
-    def less_than_one_thousand(n)
-      translate_num(n/100) + " hundred " + translate_num(n % 100)
-    end 
-
-    def greater_than_one_thousand(n)
-      translate_num(n/1000) + " thousand " + translate_num(n%1000)
-    end
 end
