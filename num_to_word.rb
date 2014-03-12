@@ -72,7 +72,12 @@ class NumToWord
     end
 
     def less_than_one_hundred(n)
-      TENS_PREFIXES[n/10] + "-" + translate_num(n%10)
+      prefix = TENS_PREFIXES[n/10]
+      if n%10 == 0
+        prefix 
+      # to catch the "twenty-" error
+      else prefix + "-" + translate_num(n%10)
+      end
     end
 
     def less_than_one_thousand(n)

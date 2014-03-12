@@ -35,7 +35,8 @@ class NumToWordTest < Test::Unit::TestCase
   end
 
   def test_6415
-    assert_equal "six thousand four hundred fifteen", NumToWord.new(6415).translate
+    assert_equal "six thousand four hundred fifteen",
+                 NumToWord.new(6415).translate
   end
 
   def test_43111
@@ -69,5 +70,13 @@ class NumToWordTest < Test::Unit::TestCase
   def test_410045
     assert_equal "four hundred ten thousand fourty-five",
                  NumToWord.new(410045).translate
+  end
+
+  def test_20000
+    assert_equal "twenty thousand", NumToWord.new(20000).translate
+  end
+
+  def test_30
+    assert_equal "thirty", NumToWord.new(30).translate
   end
 end
