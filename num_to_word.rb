@@ -59,7 +59,10 @@ class NumToWord
   private  
 
     def translate_num(n)
-      if n < 100
+      if n < 20
+        # all special cases, just a lookup
+        ONE_THRU_NINETEEN[n]
+      elsif n < 100
         less_than_one_hundred(n) 
       elsif n < 1000
         less_than_one_thousand(n)
@@ -68,17 +71,8 @@ class NumToWord
       end
     end
 
-    def less_than_twenty(n)
-      # just a lookup, these are all special cases
-      ONE_THRU_NINETEEN[n]
-    end
-
     def less_than_one_hundred(n)
-      if n >= 20
-        TENS_PREFIXES[n/10] + "-" + translate_num(n%10)
-      else
-        less_than_twenty(n)
-      end
+      TENS_PREFIXES[n/10] + "-" + translate_num(n%10)
     end
 
     def less_than_one_thousand(n)
