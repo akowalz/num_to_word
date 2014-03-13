@@ -3,25 +3,21 @@ class NumToWord
   # holds 1-19 and prefixes for multiples of 10
   load "number_names.rb"
 
-  def initialize(n)
-    @n = n
-  end
-
   # The API
-  def translate
-    # zero is a special case we don't want zero to come out of recursion
+  def self.translate(n)
+    # zero is a special case. We don't want zero to come out of recursion
     # 100 being translated as "one hundred zero" is bad!
-    if @n == 0
+    if n == 0
       "zero"
     else
       # get rid of extra whitespace with strip and squeeze
-      translate_num(@n).strip.squeeze(" ")
+      translate_num(n).strip.squeeze(" ")
     end
   end
 
   private  
 
-    def translate_num(n)
+    def self.translate_num(n)
       if n < 20
         ONE_THRU_NINETEEN[n]
       elsif n < 100
