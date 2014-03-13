@@ -8,6 +8,8 @@ Let me know if you find a case that doesn't produce the right output! I'm intere
 
 #### Usage:
 ``` 
+$ require './num_to_word.rb'
+  => true
 $ translated_string = NumToWord.translate(289473)
-  #=> "two hundred eighty-nine thousand four hundred seventy-three"
+  => "two hundred eighty-nine thousand four hundred seventy-three"
 ```
