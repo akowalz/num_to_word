@@ -6,4 +6,8 @@ Tests are included in `num_to_word_tc.rb`. There are 18 right now, I tried to th
 
 Let me know if you find a case that doesn't produce the right output! I'm interested in how I can make this algorithm better!
 
-**Usage:** `translated_string = NumToWord.translate(189283)`
+#### Usage:
+``` 
+$ translated_string = NumToWord.translate(289473)
+  #=> "two hundred eighty-nine thousand four hundred seventy three"
+```
