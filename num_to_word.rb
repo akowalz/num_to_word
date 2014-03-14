@@ -1,16 +1,12 @@
 class NumToWord
 
-  # holds 1-19 and prefixes for multiples of 10
   load "number_names.rb"
 
-  # The API
   def self.translate(n)
-    # zero is a special case. We don't want zero to come out of recursion
-    # 100 being translated as "one hundred zero" is bad!
+    # Because 100 being printed "one hundred zero" is Bad.
     if n == 0
       "zero"
     else
-      # get rid of extra whitespace with strip and squeeze
       translate_num(n).strip.squeeze(" ")
     end
   end
@@ -22,13 +18,10 @@ class NumToWord
         ONE_THRU_NINETEEN[n]
       elsif n < 100
         prefix = TENS_PREFIXES[n/10]
-        # only add hyphen when there is a ones digit
         n % 10 == 0 ? prefix : prefix + "-" + translate_num(n % 10)
       elsif n < 1000
-        # somewhat of a linguistic special case
         make_phrase(n,100,"hundred")
       else
-        # above this they all follow a similar pattern
         find_phrase_for(n)
       end
     end
@@ -37,7 +30,7 @@ class NumToWord
       order = Math.log(n,1000).to_i
       divisor = 10**((order)*3)
       unless ORDER_NAMES[order]
-        "you managed to ask a number that was too big!, fork me and add it to the hash!"
+        "you wow, you asked a number that was too big! I'm not even mad, that's amazing"
       else 
         make_phrase(n,divisor,ORDER_NAMES[order])
       end
