@@ -39,11 +39,11 @@ ORDER_NAMES = {
       1 => "thousand",
       2 => "million",
       3 => "billion",
-      4 => "trillion"
-}
-ORDERS = {
-      1 => 1000,
-      2 => 1000000,
-      3 => 1000000000,
-      4 => 1000000000000 
+      4 => "trillion",
+      5 => "quadrillion",
+      6 => "quintillion",
+      7 => "sextillion",
+      8 => "octillion",
+      9 => "nonillion",
+      10 => "decillion"
 }

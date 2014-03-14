@@ -28,14 +28,15 @@ class NumToWord
         make_phrase(n,100,"hundred")
         #translate_num(n/100) + " hundred " + translate_num(n % 100)
       else
-        find_phrase_for_order(n)
+        find_phrase_for(n)
       end
 
     end
 
-    def self.find_phrase_for_order(n)
+    def self.find_phrase_for(n)
       order = Math.log(n,1000).to_i
-      make_phrase(n,ORDERS[order],ORDER_NAMES[order])
+      divisor = 10**((order)*3)
+      make_phrase(n,divisor,ORDER_NAMES[order])
     end
 
     def self.make_phrase(n,order,word)

@@ -104,4 +104,7 @@ class NumToWordTest < Test::Unit::TestCase
                  "five hundred sixty-seven thousand eight hundred ninety",
                  NumToWord.translate(1234567890)
   end
+  def test_quadrillion
+    assert_equal "one quadrillion", NumToWord.translate(1000000000000000)
+  end
 end
