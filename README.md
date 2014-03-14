@@ -8,6 +8,6 @@ Tests are included in `num_to_word_tc.rb`. There are 24 right now, I tried to th
 ``` 
 $ require './num_to_word.rb'
   => true
-$ translated_string = NumToWord.translate(289473)
+$ NumToWord.translate(289473)
   => "two hundred eighty-nine thousand four hundred seventy-three"
 ```
