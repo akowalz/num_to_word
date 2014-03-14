@@ -1,10 +1,8 @@
 ## Number to Word Translator
 
-A number to word translator in ruby for numbers less than one billion. Implemented with a cool recursive algorithm.  Doesn't have some filler words like "and" and reads `1500` as `one thousand five hundred` not `fifteen hundred`, but overall it works very well.  
+A number to word translator in ruby for arbitrary large numbers. Right now there's support for decillions, but that's just because I had to stop writing the names at some point.  Easily extendable by adding more things to the ORDER_NAMES hash in `number_names.rb`. Implemented with a cool recursive algorithm. 
 
-Tests are included in `num_to_word_tc.rb`. There are 18 right now, I tried to think of as many weird cases as I could.
-
-Let me know if you find a case that doesn't produce the right output! I'm interested in how I can make this algorithm better!
+Tests are included in `num_to_word_tc.rb`. There are 24 right now, I tried to think of as many weird cases as I could.  Also trying to figure out a good way to do random testing, but if you have any ideas I'm all ears, can't come up with a good invariant though.
 
 #### Usage:
 ``` 

@@ -25,12 +25,12 @@ class NumToWord
         # only add hyphen when there is a ones digit
         n % 10 == 0 ? prefix : prefix + "-" + translate_num(n % 10)
       elsif n < 1000
+        # somewhat of a linguistic special case
         make_phrase(n,100,"hundred")
-        #translate_num(n/100) + " hundred " + translate_num(n % 100)
       else
+        # above this they all follow a similar pattern
         find_phrase_for(n)
       end
-
     end
 
     def self.find_phrase_for(n)
