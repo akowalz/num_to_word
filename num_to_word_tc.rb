@@ -95,4 +95,13 @@ class NumToWordTest < Test::Unit::TestCase
     assert_equal "#{nine_st} million #{nine_st} thousand #{nine_st}",
                  NumToWord.translate(999999999)
   end
+  def test_876045302
+    assert_equal "eight hundred seventy-six million fourty-five thousand three hundred two",
+                 NumToWord.translate(876045302)
+  end
+  def test_1234567890
+    assert_equal "one billion two hundred thirty-four million " + 
+                 "five hundred sixty-seven thousand eight hundred ninety",
+                 NumToWord.translate(1234567890)
+  end
 end

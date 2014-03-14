@@ -24,7 +24,6 @@ ONE_THRU_NINETEEN = {
       19 => "nineteen"
     } 
 
-
 TENS_PREFIXES = {
       2 => "twenty",
       3 => "thirty",
@@ -35,3 +34,16 @@ TENS_PREFIXES = {
       8 => "eighty",
       9 => "ninety"
     }
+
+ORDER_NAMES = {
+      1 => "thousand",
+      2 => "million",
+      3 => "billion",
+      4 => "trillion"
+}
+ORDERS = {
+      1 => 1000,
+      2 => 1000000,
+      3 => 1000000000,
+      4 => 1000000000000 
+}

@@ -25,12 +25,21 @@ class NumToWord
         # only add hyphen when there is a ones digit
         n % 10 == 0 ? prefix : prefix + "-" + translate_num(n % 10)
       elsif n < 1000
-        translate_num(n/100) + " hundred " + translate_num(n % 100)
-      elsif n < 1000000
-        translate_num(n/1000) + " thousand " + translate_num(n % 1000)
-      elsif n < 1000000000
-        translate_num(n/1000000) + " million " + translate_num(n % 1000000)
+        make_phrase(n,100,"hundred")
+        #translate_num(n/100) + " hundred " + translate_num(n % 100)
+      else
+        find_phrase_for_order(n)
       end
+
+    end
+
+    def self.find_phrase_for_order(n)
+      order = Math.log(n,1000).to_i
+      make_phrase(n,ORDERS[order],ORDER_NAMES[order])
+    end
+
+    def self.make_phrase(n,order,word)
+      translate_num(n/order) + " #{word} " + translate_num(n % order)
     end
 
 end
