@@ -26,8 +26,10 @@ class NumToWord
         n % 10 == 0 ? prefix : prefix + "-" + translate_num(n % 10)
       elsif n < 1000
         translate_num(n/100) + " hundred " + translate_num(n % 100)
-      else
+      elsif n < 1000000
         translate_num(n/1000) + " thousand " + translate_num(n % 1000)
+      elsif n < 1000000000
+        translate_num(n/1000000) + " million " + translate_num(n % 1000000)
       end
     end
 
