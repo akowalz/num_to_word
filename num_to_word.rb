@@ -30,7 +30,7 @@ class NumToWord
       order = Math.log(n,1000).to_i
       divisor = 10**((order)*3)
       unless ORDER_NAMES[order]
-        "you wow, you asked a number that was too big! I'm not even mad, that's amazing"
+        "You entered a number that was too big! I'm not even mad, that's amazing"
       else 
         make_phrase(n,divisor,ORDER_NAMES[order])
       end
