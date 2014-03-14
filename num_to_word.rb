@@ -36,7 +36,11 @@ class NumToWord
     def self.find_phrase_for(n)
       order = Math.log(n,1000).to_i
       divisor = 10**((order)*3)
-      make_phrase(n,divisor,ORDER_NAMES[order])
+      unless ORDER_NAMES[order]
+        "you managed to ask a number that was too big!, fork me and add it to the hash!"
+      else 
+        make_phrase(n,divisor,ORDER_NAMES[order])
+      end
     end
 
     def self.make_phrase(n,order,word)
