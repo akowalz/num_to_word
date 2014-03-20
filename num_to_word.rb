@@ -1,19 +1,18 @@
-class NumToWord
+module NumToWord
 
   load "number_names.rb"
 
-  def self.translate(n)
+  def translate(n)
     # Because 100 being printed "one hundred zero" is Bad.
     if n == 0
       "zero"
     else
-      translate_num(n).strip.squeeze(" ")
+      Translator.new.translate_num(n).strip.squeeze(" ")
     end
   end
 
-  private  
-
-    def self.translate_num(n)
+  class Translator
+    def translate_num(n)
       if n < 20
         ONE_THRU_NINETEEN[n]
       elsif n < 100
@@ -26,18 +25,21 @@ class NumToWord
       end
     end
 
-    def self.find_phrase_for(n)
+    private
+
+    def find_phrase_for(n)
       order = Math.log(n,1000).to_i
       divisor = 10**((order)*3)
       unless ORDER_NAMES[order]
-        "You entered a number that was too big! I'm not even mad, that's amazing"
+        "Number was too large.  Fork me and add it!"
       else 
         make_phrase(n,divisor,ORDER_NAMES[order])
       end
     end
 
-    def self.make_phrase(n,order,word)
+    def make_phrase(n,order,word)
       translate_num(n/order) + " #{word} " + translate_num(n % order)
     end
+  end
 
 end
