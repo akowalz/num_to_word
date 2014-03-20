@@ -1,5 +1,6 @@
 require './num_to_word'
 require 'test/unit'
+include NumToWord
 
 class NumToWordTest < Test::Unit::TestCase
 
